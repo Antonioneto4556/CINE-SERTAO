@@ -69,12 +69,13 @@ while True:
                     else:
                         Moves_semelhantes = []
                         for filme_titulo in filmes.keys():
-                            if(titulo.lower() in filme_titulo.lower() or filme_titulo.lower() in titulo.lower()):
+                            if(titulo.lower() in filme_titulo.lower()):
                                 Moves_semelhantes.append(filme_titulo)
                         if(Moves_semelhantes):
                             print('\033[91mFilme não encontrado\033[m. \033[94mFilmes semelhantes:\033[m')
                             for filme in Moves_semelhantes:
                                 print(filme)
+                                sleep(1)        
                         else:
                             print('\033[91mFilme não encontrado.\033[m')
                 elif(opcao == 3):
