@@ -75,7 +75,7 @@ while True:
                             print('\033[91mFilme não encontrado\033[m. \033[94mFilmes semelhantes:\033[m')
                             for filme in Moves_semelhantes:
                                 print(filme)
-                                sleep(1)        
+                                sleep(1)
                         else:
                             print('\033[91mFilme não encontrado.\033[m')
                 elif(opcao == 3):
@@ -101,7 +101,7 @@ while True:
                             sleep(1)
                         else:
                             print('Filme não encontrado.')
-                            sleep(1)        
+                            sleep(1)
                 elif(opcao == 4):
                     print("\nRemover Filme")
                     titulo = input('Digite o título do filme que deseja remover: ')
@@ -117,15 +117,21 @@ while True:
                             print('Filme não encontrado. Filmes semelhantes:')
                             for filme in Moves_semelhantes:
                                 print(filme)
-                            sleep(1)        
+                            sleep(1)
                         else:
                             print('Filme não encontrado.')
-                            sleep(1)        
-                elif(opcao == 5):
+                            sleep(1)
+                elif (opcao == 5):
                     print('\nVendas de Ingressos')
+                    total_receita = 0
                     for titulo, filme in filmes.items():
-                        print(f'Filme: {titulo}, Ingressos Vendidos: {filme['ingressos_vendidos']},Valor Total Arrecadado: R$ {filme['ingressos_vendidos'] * filme['valor']:.2f}')
-                        sleep(1)        
+                        ingressos_vendidos = filme['ingressos_vendidos']
+                        valor_total = ingressos_vendidos * filme['valor']
+                        total_receita += valor_total
+                        print(
+                            f'Filme: {titulo}, Ingressos Vendidos: {ingressos_vendidos}, Valor Total Arrecadado: R$ {valor_total:.2f}')
+                        sleep(1)
+                    print(f'Total de receita: R$ {total_receita:.2f}')
                 elif(opcao == 0):
                     sleep(1)
                     break
