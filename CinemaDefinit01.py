@@ -48,10 +48,10 @@ while True:
                     sleep(1)
                     print('\nCadastro de Filme')
                     titulo = input('Título do Filme: ')
-                    sala = input('Sala: ')
+                    sala = int(input('Sala: '))
                     while sala in salas:
                         print('Sala já cadastrada. Escolha outra sala.')
-                        sala = input('Sala: ')
+                        sala = int(input('Sala: '))
                     salas.add(sala)
                     horario = input('Horário: ')
                     capacidade = int(input('Capacidade: '))
