@@ -111,7 +111,7 @@ while True:
                     else:
                         Moves_semelhantes = []
                         for filme_titulo in filmes.keys():
-                            if(titulo.lower() in filme_titulo.lower() or filme_titulo.lower() in titulo.lower()):
+                            if(titulo.lower() in filme_titulo.lower()):
                                 Moves_semelhantes.append(filme_titulo)
                         if(Moves_semelhantes):
                             print('Filme não encontrado. Filmes semelhantes:')
