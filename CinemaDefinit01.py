@@ -92,16 +92,17 @@ while True:
                     else:
                         Moves_semelhantes = []
                         for filme_titulo in filmes.keys():
-                            if(titulo.lower() in filme_titulo.lower() or filme_titulo.lower() in titulo.lower()):
+                            if(titulo.lower() in filme_titulo.lower()):
                                 Moves_semelhantes.append(filme_titulo)
                         if(Moves_semelhantes):
                             print('Filme não encontrado. Filmes semelhantes:')
                             for filme in Moves_semelhantes:
                                 print(filme)
+                            sleep(1)
                         else:
                             print('Filme não encontrado.')
+                            sleep(1)        
                 elif(opcao == 4):
-                    sleep(1)
                     print("\nRemover Filme")
                     titulo = input('Digite o título do filme que deseja remover: ')
                     if(titulo in filmes):
@@ -116,13 +117,15 @@ while True:
                             print('Filme não encontrado. Filmes semelhantes:')
                             for filme in Moves_semelhantes:
                                 print(filme)
+                            sleep(1)        
                         else:
                             print('Filme não encontrado.')
+                            sleep(1)        
                 elif(opcao == 5):
-                    sleep(1)
                     print('\nVendas de Ingressos')
                     for titulo, filme in filmes.items():
                         print(f'Filme: {titulo}, Ingressos Vendidos: {filme['ingressos_vendidos']},Valor Total Arrecadado: R$ {filme['ingressos_vendidos'] * filme['valor']:.2f}')
+                        sleep(1)        
                 elif(opcao == 0):
                     sleep(1)
                     break
@@ -159,7 +162,7 @@ while True:
             else:
                 Moves_semelhantes = []
                 for filme_titulo in filmes.keys():
-                    if(titulo.lower() in filme_titulo.lower() or filme_titulo.lower() in titulo.lower()):
+                    if(titulo.lower() in filme_titulo.lower()):
                         Moves_semelhantes.append(filme_titulo)
                 if(Moves_semelhantes):
                     print('Filme não encontrado. Filmes semelhantes:')
