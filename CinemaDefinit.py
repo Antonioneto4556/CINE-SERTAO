@@ -1,4 +1,3 @@
-
 from time import sleep
 
 usuarios = {'Antonio': {'senha': 'neto123', 'perfil': 'admin'},
@@ -38,17 +37,17 @@ while True:
         if(usuarios[usuario]['perfil'] == 'admin'):
             while True:
                 print('\n\033[94m=== Módulo de Gerenciamento de Filmes ===\033[0m')
-                print('\033[0:92:41m[1]\033[m Cadastrar Filme')
-                print('\033[0:92:41m[2]\033[m Buscar Filme')
-                print('\033[0:92:41m[3]\033[m Atualizar Filme')
-                print('\033[0:92:41m[4]\033[m Remover Filme')
-                print('\033[0:92:41m[5]\033[m Visualizar vendas de ingressos')
-                print('\033[0:92:41m[0]\033[m Voltar ao menu principal')
+                print('\033[1:7:93:40m[1]\033[m Cadastrar Filme')
+                print('\033[1:7:93:40m[2]\033[m Buscar Filme')
+                print('\033[1:7:93:40m[3]\033[m Atualizar Filme')
+                print('\033[1:7:93:40m[4]\033[m Remover Filme')
+                print('\033[1:7:93:40m[5]\033[m Visualizar vendas de ingressos')
+                print('\033[1:7:93:40m[0]\033[m Voltar ao menu principal')
 
                 opcao = int(input('Escolha uma opção: '))
                 if(opcao == 1):
                     sleep(1)
-                    print('\n\033[7:91:47mCADASTRO DE FILMES\033[m')
+                    print('\n\033[1:7:93:40m[CADASTRO DE FILMES]\033[m')
                     titulo = input('Título do Filme: ')
                     sala = int(input('Sala: '))
                     while sala in salas:
@@ -63,7 +62,7 @@ while True:
                     print('\033[92mFilme cadastrado com sucesso!\033[m')
                 elif(opcao == 2):
                     sleep(1)
-                    print('\n\033[94mBusca de Filme\033[m')
+                    print('\n\033[1:7:93:40m[BUSCA FILME]\033[m')
                     titulo = input('Digite o título do filme: ')
                     if(titulo in filmes):
                         print('\033[92mFilme encontrado:\033[m')
@@ -82,7 +81,7 @@ while True:
                             print('\033[91mFilme não encontrado.\033[m')
                 elif(opcao == 3):
                     sleep(1)
-                    print('\n\033[7:91:47mATUALIZAÇÃO DE FILMES\033[m')
+                    print('\n\033[1:7:93:40m[ATUALIZAÇÃO DE FILMES]\033[m')
                     titulo = input('Digite o título do filme que deseja atualizar: ')
                     if(titulo in filmes):
                         print('\033[92mFilme encontrado\033[m. \033[94mAtualize as informações\033[m: ')
@@ -105,7 +104,7 @@ while True:
                             print('\033[91mFilme não encontrado\033[m.')
                             sleep(1)
                 elif(opcao == 4):
-                    print('\n\033[7:91:47mREMOVER FILMES\033[m')
+                    print('\n\033[1:7:93:40m[REMOVER FILMES]\033[m')
                     titulo = input('Digite o título do filme que deseja remover: ')
                     if(titulo in filmes):
                         del filmes[titulo]
@@ -124,7 +123,7 @@ while True:
                             print('\033[91Filme não encontrado\033[m.')
                             sleep(1)
                 elif (opcao == 5):
-                    print('\n\033[7:91:47mVENDAS DE INGRESSO\033[m')
+                    print('\n\033[1:7:93:40m[VENDAS DE INGRESSO]\033[m')
                     total_receita = 0
                     for titulo, filme in filmes.items():
                         ingressos_vendidos = filme['ingressos_vendidos']
