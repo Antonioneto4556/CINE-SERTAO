@@ -5,11 +5,11 @@ usuarios = {'Antonio': {'senha': 'neto123', 'perfil': 'admin'},
             'Neto': {'senha': '123', 'perfil': 'cliente'}
             }
 salas = set()
-filmes = {'Jalin Habei': {'sala': 1, 'horario': '18:00', 'capacidade': 75, 'valor': 20.00, 'ingressos_vendidos': 0},
-          'Tomas Turbano': {'sala': 2, 'horario': '19:30', 'capacidade': 80, 'valor': 18.00, 'ingressos_vendidos': 0},
-          'Sherek 6': {'sala': 3, 'horario': '20:15', 'capacidade': 90, 'valor': 15.00, 'ingressos_vendidos': 0},
-          'Naruto Usacrak': {'sala': 4, 'horario': '20:15', 'capacidade': 60, 'valor': 15.00, 'ingressos_vendidos': 0},
-          'O Banheiro': {'sala': 5, 'horario': '20:15', 'capacidade': 75, 'valor': 20.00, 'ingressos_vendidos': 0},
+filmes = {'Jalin Habei': {'sala': 1, 'horario': '18:00', 'capacidade': 75, 'valor': 60.00, 'ingressos_vendidos': 0},
+          'Tomas Turbano': {'sala': 2, 'horario': '19:30', 'capacidade': 80, 'valor': 69.00, 'ingressos_vendidos': 0},
+          'Sherek 6': {'sala': 3, 'horario': '20:15', 'capacidade': 90, 'valor': 50.00, 'ingressos_vendidos': 0},
+          'Naruto Usacrak': {'sala': 4, 'horario': '20:15', 'capacidade': 60, 'valor': 40.00, 'ingressos_vendidos': 0},
+          'O Banheiro': {'sala': 5, 'horario': '20:15', 'capacidade': 75, 'valor': 50.00, 'ingressos_vendidos': 0},
           }
 for filme in filmes.values():
     salas.add(filme['sala'])
