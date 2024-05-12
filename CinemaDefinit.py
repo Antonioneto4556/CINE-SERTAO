@@ -223,7 +223,7 @@ while True:
 
     elif(opcaoM == 0):
         sleep(1)
-        desejo = input('Deseja sair do CINE Sertão? (S|N): ').upper()
+        desejo = input('\033[94mDeseja sair do CINE Sertão?\033[m \033[1:7:93:40m[S|N]\033[m: ').upper()
         if(desejo == 'S'):
             print('\033[1:3:7:30:97mFechando o CINE Sertão\033[m', end='')
             (sleep(1))
@@ -233,7 +233,7 @@ while True:
             (sleep(1))
             print('\033[92:41m ° \033[m', end='')
             (sleep(1))
-            print(f'\033[7:30:41mENCERRADO\033[m')
+            print(f'\033[7:30:41m[ENCERRADO]\033[m')
             break
         elif(desejo == 'N'):
             print('Voltando ao MENU!')
