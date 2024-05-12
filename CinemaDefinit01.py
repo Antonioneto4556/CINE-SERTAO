@@ -1,16 +1,18 @@
+
 from time import sleep
 
 usuarios = {'Antonio': {'senha': 'neto123', 'perfil': 'admin'},
             'Neto': {'senha': '123', 'perfil': 'cliente'}
             }
 salas = set()
-filmes = {"Jalin Habei": {"sala": 1, "horario": "18:00", "capacidade": 75, "valor": 20.00, "ingressos_vendidos": 0},
-          "Tomas Turbano": {"sala": 2, "horario": "19:30", "capacidade": 80, "valor": 18.00, "ingressos_vendidos": 0},
-          "Two Girls and a Cup": {"sala": 3, "horario": "20:15", "capacidade": 90, "valor": 15.00, "ingressos_vendidos": 0},
-          "Naruto: O Gari de Konoha": {"sala": 4, "horario": "20:15", "capacidade": 90, "valor": 15.00, "ingressos_vendidos": 0}
+filmes = {'Jalin Habei': {'sala': 1, 'horario': '18:00', 'capacidade': 75, 'valor': 20.00, 'ingressos_vendidos': 0},
+          'Tomas Turbano': {'sala': 2, 'horario': '19:30', 'capacidade': 80, 'valor': 18.00, 'ingressos_vendidos': 0},
+          'Sherek 6': {'sala': 3, 'horario': '20:15', 'capacidade': 90, 'valor': 15.00, 'ingressos_vendidos': 0},
+          'Naruto Usacrak': {'sala': 4, 'horario': '20:15', 'capacidade': 60, 'valor': 15.00, 'ingressos_vendidos': 0},
+          'O Banheiro': {'sala': 5, 'horario': '20:15', 'capacidade': 75, 'valor': 20.00, 'ingressos_vendidos': 0},
           }
 for filme in filmes.values():
-    salas.add(filme["sala"])
+    salas.add(filme['sala'])
 while True:
     print('\n\033[95:40m}======[ \033[m\033[1:3:97:40mCINE SERTÃO\033[m\033[95:40m ]======{\033[0m')
     print('\033[7:91:40m[ 1 ]\033[m\033[7:94:40m | GERENCIAR OS FILMES |\033[m')
@@ -24,7 +26,7 @@ while True:
     if(opcaoM == 1):
         sleep(1)
         while True:
-            print('[APENAS PARA ADMINISTRADORES]')
+            print('\033[1:3:7:91:40m ===== [ADMINISTRAÇÂO] ===== \033[m')
             usuario = input('Digite o nome de usuário: ')
             senha = input('Digite a senha: ')
             if(usuario in usuarios and usuarios[usuario]['senha'] == senha):
@@ -46,7 +48,7 @@ while True:
                 opcao = int(input('Escolha uma opção: '))
                 if(opcao == 1):
                     sleep(1)
-                    print('\nCadastro de Filme')
+                    print('\n\033[7:91:47mCADASTRO DE FILMES\033[m')
                     titulo = input('Título do Filme: ')
                     sala = int(input('Sala: '))
                     while sala in salas:
@@ -80,10 +82,10 @@ while True:
                             print('\033[91mFilme não encontrado.\033[m')
                 elif(opcao == 3):
                     sleep(1)
-                    print('\nAtualizar Filme')
+                    print('\n\033[7:91:47mATUALIZAÇÃO DE FILMES\033[m')
                     titulo = input('Digite o título do filme que deseja atualizar: ')
                     if(titulo in filmes):
-                        print('Filme encontrado. Atualize as informações: ')
+                        print('\033[92mFilme encontrado\033[m. \033[94mAtualize as informações\033[m: ')
                         filmes[titulo]["sala"] = input('Nova Sala: ')
                         filmes[titulo]["horario"] = input('Novo Horário: ')
                         filmes[titulo]["capacidade"] = int(input('Nova Capacidade: '))
@@ -95,95 +97,98 @@ while True:
                             if(titulo.lower() in filme_titulo.lower()):
                                 Moves_semelhantes.append(filme_titulo)
                         if(Moves_semelhantes):
-                            print('Filme não encontrado. Filmes semelhantes:')
+                            print('\033[91mFilme não encontrado\033[m. \033[96mFilmes semelhantes:\033[m')
                             for filme in Moves_semelhantes:
                                 print(filme)
                             sleep(1)
                         else:
-                            print('Filme não encontrado.')
+                            print('\033[91mFilme não encontrado\033[m.')
                             sleep(1)
                 elif(opcao == 4):
-                    print("\nRemover Filme")
+                    print('\n\033[7:91:47mREMOVER FILMES\033[m')
                     titulo = input('Digite o título do filme que deseja remover: ')
                     if(titulo in filmes):
                         del filmes[titulo]
-                        print("Filme removido com sucesso!")
+                        print('\033[92mFilme removido com sucesso\033[m!')
                     else:
                         Moves_semelhantes = []
                         for filme_titulo in filmes.keys():
                             if(titulo.lower() in filme_titulo.lower()):
                                 Moves_semelhantes.append(filme_titulo)
                         if(Moves_semelhantes):
-                            print('Filme não encontrado. Filmes semelhantes:')
+                            print('\033[91mFilme não encontrado\033[m. \033[96mFilmes semelhantes\033[m:')
                             for filme in Moves_semelhantes:
                                 print(filme)
                             sleep(1)
                         else:
-                            print('Filme não encontrado.')
+                            print('\033[91Filme não encontrado\033[m.')
                             sleep(1)
                 elif (opcao == 5):
-                    print('\nVendas de Ingressos')
+                    print('\n\033[7:91:47mVENDAS DE INGRESSO\033[m')
                     total_receita = 0
                     for titulo, filme in filmes.items():
                         ingressos_vendidos = filme['ingressos_vendidos']
                         valor_total = ingressos_vendidos * filme['valor']
                         total_receita += valor_total
                         print(
-                            f'Filme: {titulo}, Ingressos Vendidos: {ingressos_vendidos}, Valor Total Arrecadado: R$ {valor_total:.2f}')
+                            f'Filme: \033[93m{titulo}\033[m, Ingressos Vendidos: \033[91m{ingressos_vendidos}\033[m, Valor Total Arrecadado:\033[92m R$ {valor_total:.2f}\033[m')
                         sleep(1)
-                    print(f'Total de receita: R$ {total_receita:.2f}')
+                    print(f'Total de receita: \033[92mR$ {total_receita:.2f}\033[m')
                 elif(opcao == 0):
                     sleep(1)
                     break
                 else:
-                    print('Opção inválida!')
+                    print('\033[91Opção inválida\033[m!')
         else:
-            print('Acesso negado! Esta função é exclusiva para administradores.')
+            print('\033[mAcesso negado! Esta função é exclusiva para administradores\033[m.')
 
     elif(opcaoM == 2):
         sleep(1)
+        print('\033[1:3:7:93:40m === COMPRA DE INGRESSOS === \033[m')
         while True:
             usuario = input('Digite o nome de usuário: ')
             senha = input('Digite a senha: ')
             if(usuario in usuarios and usuarios[usuario]['senha'] == senha):
-                print('Login bem-sucedido!')
+                print('\033[92mLogin bem-sucedido\033[m!')
                 break
             else:
-                print('Usuário ou senha incorretos. Tente novamente.')
+                print('\033[91mUsuário ou senha incorretos\033[m.\033[94m Tente novamente\033[m.')
 
         if(usuarios[usuario]['perfil'] == 'cliente'):
-            print('\nCompra de Ingresso')
+            print('\n\033[1:3:7:95:40m#=-COMPRA DE INGRESSOS-=#\033[m')
             print('Filmes Disponíveis:')
             for titulo, filme in filmes.items():
-                print(f'{titulo} - R$ {filme['valor']:.2f}')
-            titulo = input("Digite o título do filme que deseja assistir: ")
+                print(f'\033[94m{titulo}\033[m - \033[92mR$\033[m \033[91m{filme['valor']:.2f}\033[m')
+            titulo = input('\033[1:7:90:40mDigite o título completo: \033[m')
             if(titulo in filmes):
                 filme = filmes[titulo]
                 if(filme['capacidade'] > 0):
                     filme['capacidade'] -= 1
                     filme['ingressos_vendidos'] += 1
-                    print(f'Ingresso comprado com sucesso para {titulo}. Aproveite o filme!')
+                    print(f'\033[91mIngresso comprado com sucesso para {titulo}. Aproveite o filme!\033[m')
                 else:
-                    print('Desculpe, a capacidade máxima para este filme foi atingida.')
+                    print('\033[93mDesculpe, a capacidade máxima para este filme foi atingida.\033[m')
             else:
                 Moves_semelhantes = []
                 for filme_titulo in filmes.keys():
                     if(titulo.lower() in filme_titulo.lower()):
                         Moves_semelhantes.append(filme_titulo)
                 if(Moves_semelhantes):
-                    print('Filme não encontrado. Filmes semelhantes:')
+                    print('\033[91mFilme não encontrado\033[m.\033[94m Filmes semelhantes\033[m:')
                     for filme in Moves_semelhantes:
                         print(filme)
                 else:
-                    print('Filme não encontrado.')
+                    print('\033[91mFilme não encontrado.\033[m')
+                    sleep(1)
         else:
-            print('Apenas clientes podem comprar ingressos!')
+            print('\033[1:3:7:95:40mMas apenas clientes podem comprar ingressos!\033[m')
+            sleep(1)
 
     elif(opcaoM == 3):
         sleep(1)
         while True:
             print('\033[97m-=\033[m'*34)
-            print('FILMES DISPONÍVEIS:')
+            print('\033[1:3:7:93:40m === FILMES  DISPONÍVEIS === \033[m')
             print('\033[97m-=\033[m' * 34)
             for titulo, filme in filmes.items():
                 print(f'\033[94m{titulo}\033[m - \033[94m{filme['sala']}\033[m - \033[91m{filme['horario']}\033[m - \033[92mR$ {filme['valor']:.2f}\033[m - \033[96m{filme['capacidade']} lugares disponíveis\033[m')
@@ -196,35 +201,39 @@ while True:
     elif(opcaoM == 4):
         (sleep(1))
         while True:
-            print(' ===== CADASTRO ===== ')
+            print('\033[1:3:7:93:40m ======== CADASTROS ======== \033[m')
             novo_usuario = input('Nome de Usuário: ')
             if(novo_usuario not in usuarios):
                 senha = input('Senha: ')
                 perfil = input('Perfil [admin] ou [cliente]: ')
                 usuarios[novo_usuario] = {'senha': senha, 'perfil': perfil}
-                print('Usuário cadastrado com sucesso!')
-                novo_cadastro = int(input('Para cadastra novamente digite [1]\ncaso queira voltar ao menu digite [2]'))
+                print('\033[92m Usuário cadastrado com sucesso!\033[m')
+                novo_cadastro = int(input('''\033[1:3:7:93:40m[1]\033[m Para cadastra novamente;
+\033[1:3:7:93:40m[2]\033[m\033[1:3:7:97:40m Caso queira voltar ao menu;\033[m
+                         OPÇÃO: '''))
                 if(novo_cadastro == 2):
                     sleep(1)
                     break
-                else:
+                elif(novo_cadastro == 1):
                     print()
+                else:
+                    print('\033[91mOPÇÂO INVALIDA! VOLTANDO AO MENU!\033[m')
             else:
-                print('\033[91mNOME DE USUARIO JÁ CADASTRADO\033[m. \033[94mEscolha outro.\033[m')
+                print('\033[91mNOME DE USUARIO JÁ CADASTRADO \033[m. \033[94mEscolha outro \033[m.')
 
     elif(opcaoM == 0):
         sleep(1)
         desejo = input('Deseja sair do CINE Sertão? (S|N): ').upper()
         if(desejo == 'S'):
-            print('\033[97mFechando o CINE Sertão\033[m', end='')
+            print('\033[1:3:7:30:97mFechando o CINE Sertão\033[m', end='')
             (sleep(1))
-            print('\033[93m.\033[m', end='')
+            print('\033[93:42m ° \033[m', end='')
             (sleep(1))
-            print('\033[91m.\033[m', end='')
+            print('\033[91:43m ° \033[m', end='')
             (sleep(1))
-            print('\033[92m.\033[m', end='')
+            print('\033[92:41m ° \033[m', end='')
             (sleep(1))
-            print('\033[7:91:40mENCERRADO\033[m')
+            print(f'\033[7:30:41mENCERRADO\033[m')
             break
         elif(desejo == 'N'):
             print('Voltando ao MENU!')
