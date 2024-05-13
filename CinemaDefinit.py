@@ -68,13 +68,13 @@ while True:
                         print('\033[92mFilme encontrado:\033[m')
                         print(filmes[titulo])
                     else:
-                        Moves_semelhantes = []
+                        filmes_similares = []
                         for filme_titulo in filmes.keys():
                             if(titulo.lower() in filme_titulo.lower()):
-                                Moves_semelhantes.append(filme_titulo)
-                        if(Moves_semelhantes):
+                                filmes_similares.append(filme_titulo)
+                        if(filmes_similares):
                             print('\033[91mFilme não encontrado\033[m. \033[94mFilmes semelhantes:\033[m')
-                            for filme in Moves_semelhantes:
+                            for filme in filmes_similares:
                                 print(filme)
                                 sleep(1)
                         else:
@@ -207,13 +207,13 @@ while True:
                 perfil = input('Perfil [admin] ou [cliente]: ')
                 usuarios[novo_usuario] = {'senha': senha, 'perfil': perfil}
                 print('\033[92m Usuário cadastrado com sucesso!\033[m')
-                novo_cadastro = int(input('''\033[1:3:7:93:40m[1]\033[m\033[1:3:7:97:40m Para cadastra novamente;   \033[m
+                novo_registro = int(input('''\033[1:3:7:93:40m[1]\033[m\033[1:3:7:97:40m Para cadastra novamente;   \033[m
 \033[1:3:7:93:40m[2]\033[m\033[1:3:7:97:40m Caso queira voltar ao menu;\033[m
 \033[1:3:7:97:40m                        \033[m\033[1:3:7:90:42m OPÇÃO:\033[m '''))
-                if(novo_cadastro == 2):
+                if(novo_registro == 2):
                     sleep(1)
                     break
-                elif(novo_cadastro == 1):
+                elif(novo_registro == 1):
                     print()
                 else:
                     print('\033[91mOPÇÂO INVALIDA! VOLTANDO AO MENU!\033[m')
